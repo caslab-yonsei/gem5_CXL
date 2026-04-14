@@ -1,4 +1,4 @@
-toppath=**file_path**
+toppath=<file_path>
 gem5_dir=$toppath/gem5
 exe=$gem5_dir/build/ARM/gem5.opt
 
@@ -9,8 +9,8 @@ cpu=AtomicSimpleCPU
 
 export M5_PATH=**Arm_FS_Binaries_path**
 
-disk=**ubuntu_disk_path**
-kernel=**linux_kernel_path**
+disk=<ubuntu_disk_path*>
+kernel=<linux_kernel_path>
 
 
 dtb=$gem5_dir/system/arm/dt/armv8_gem5_v1_1cpu.dtb

@@ -9,10 +9,10 @@ cpu=" --cpu-type=AtomicSimpleCPU "
 cache=" --caches --l2cache "
 mem=""
 
-debug=" --debug-flags=AddrRanges,PciBridge,PciDevice,PciHost,CxlDevice,CxlHost,DCOH,CXLProcessor,CXLXBar,CPU2,Cache2  "
-#debug=" "
+#debug=" --debug-flags=AddrRanges,PciBridge,PciDevice,PciHost,CxlDevice,CxlHost,DCOH,CXLProcessor,CXLXBar,CPU2,Cache2  "
+debug=" "
 
-kernel=**file_path**/gem5.bare-metal/Simple/main.elf
+kernel=<file_path>/gem5.bare-metal/Simple/main.elf
  
 $exe $debug --outdir $outdir -re $fs_config $cpu $cache $mem --kernel=$kernel --disk-image=$disk --bare-metal --dtb-filename=$dtb --machine-type=VExpress_GEM5_V1 --mem-size=2GB $script
 
