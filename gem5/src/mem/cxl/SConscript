@@ -1,0 +1,8 @@
+Import('*')
+
+Source('cxl_packet.cc')
+Source('cxl_cache_packet.cc')
+
+# SimObject('CxlMemDev.py', sim_objects=['CxlMemOnlyDev'])
+# Source('cxl_mem_dev.cc')
+# DebugFlag("CxlMemOnlyDev")

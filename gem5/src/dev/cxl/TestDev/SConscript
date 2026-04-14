@@ -1,0 +1,19 @@
+Import('*')
+
+SimObject('CXLDevice.py', sim_objects=['CXLDevice'])
+Source('CXLDevice.cc')
+
+SimObject('CXLProcessor.py', sim_objects=['CXLProcessor'])
+Source('CXLProcessor.cc')
+
+SimObject('CXLplatform.py', sim_objects=['CXLplatform'])
+Source('CXLplatform.cc')
+
+SimObject('CXLXBar.py', sim_objects=['CXLXBar'])
+Source('CXLXBar.cc')
+
+DebugFlag('CXLDevice')
+DebugFlag('DCOH')
+DebugFlag('CXLProcessor')
+DebugFlag('CXLXBar')
+DebugFlag('CXLProtocol')
