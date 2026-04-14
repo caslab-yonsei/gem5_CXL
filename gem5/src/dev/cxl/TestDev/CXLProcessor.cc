@@ -42,7 +42,7 @@ CXLProcessor::init()
         panic("cxlproc mem_side_ports of %s not connected to anything!", name());
 
     DPRINTF(CXLProcessor, "(CXL_Debug) Init CXLProcessor\n");
-    // schedule(sendCXLProcEvent, 1400000000L+clockEdge(Cycles(1)));
+    // schedule(sendCXLProcEvent, 1400000000L+clockEdge(Cycles(1))); // For CXL processor instructions
     // schedule(sendCXLProcEvent, 1200000000L+clockEdge(Cycles(1)));
 }
 
@@ -263,6 +263,7 @@ CXLProcPort::drain()
     }
 }
 
+// For CXL processor instructions
 void
 CXLProcessor::CXLProcRUN()
 {
@@ -272,10 +273,10 @@ CXLProcessor::CXLProcRUN()
     uint8_t *data = &num;
     uint8_t *read_data = &read_num;
 
-    // CXLWrite(0x80000000L, 4, data); // 호스트 캐시 invalid필요
-    CXLWrite(0xA0000000L, 4, data);
-    // CXLRead(0xA0000000L, 4, read_data);
-    // CXLRead(0x80000000L, 4, read_data);
+    // CXLWrite(0x80000000L, 4, data); // write cxl mem (Possibility of snooping (if cached on the host))(CXL.cache)
+    CXLWrite(0xA0000000L, 4, data); // write host mem (CXL.cache)
+    // CXLRead(0xA0000000L, 4, read_data); // read host mem (CXL.cache)
+    // CXLRead(0x80000000L, 4, read_data); // read cxl mem (Possibility of snooping (if cached on the host))(CXL.cache)
 }
 
 }

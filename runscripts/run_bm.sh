@@ -10,6 +10,7 @@ cache=" --caches --l2cache "
 mem=""
 
 #debug=" --debug-flags=AddrRanges,PciBridge,PciDevice,PciHost,CxlDevice,CxlHost,DCOH,CXLProcessor,CXLXBar,CPU2,Cache2  "
+#debug=" --debug-flags=AddrRanges,PciBridge,PciDevice,PciHost,CxlDevice,CxlHost,DCOH,CXLProcessor,CXLXBar,CPU2,Cache2,MemCtrl2  "
 debug=" "
 
 kernel=<file_path>/gem5.bare-metal/Simple/main.elf

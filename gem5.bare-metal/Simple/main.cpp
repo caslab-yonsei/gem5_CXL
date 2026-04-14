@@ -38,15 +38,17 @@ int main(void)
 {
     
 	unsigned int r = 1337;
-//	unsigned char* ptrx = (unsigned char*)0x80000000;
-	unsigned char* ptrx2 = (unsigned char*)0xa0000000; //cxl mem addr
+	unsigned char* ptrx = (unsigned char*)0x80000000;  //CXL mem addr
+	unsigned char* ptrx2 = (unsigned char*)0xa0000000; //Host(main) mem addr
 	
 	unsigned char a[] = "abcd\0";
 	unsigned char b;
 
 	 // printf("Write & Read from host CPU (dest addr=%x)\n", ptrx2);
-	 *ptrx2 = a[1]; // write mem
-	 b = *ptrx2; // Read mem
+	*ptrx = a[1]; // Write cxl mem  (CXL.mem)
+	b = *ptrx; // Read cxl mem (CXL.mem)
+	// *ptrx2 = a[1]; // Write host mem (Possibility of snooping (if cached on the cxl))(CXL.cache)
+	// b = *ptrx2; // Read host mem (Possibility of snooping (if cached on the cxl))(CXL.cache)
 
 
 
