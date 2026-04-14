@@ -1,0 +1,55 @@
+warn: The fs.py script is deprecated. It will be removed in future releases of  gem5.
+warn: iobus_dma.slave is deprecated. `slave` is now called `cpu_side_ports`
+src/mem/dram_interface.cc:690: warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (2048 Mbytes)
+src/sim/kernel_workload.cc:46: info: kernel located at: /home/kjb/sandbox/gem5.bare-metal/Simple/main.elf
+src/arch/arm/system.cc:97: warn: Highest ARM exception-level set to AArch64 but the workload is for AArch32. Assuming you wanted these to match.
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+system.vncserver: Listening for connections on port 5900
+system.terminal: Listening for connections on port 3456
+system.realview.uart1.device: Listening for connections on port 3457
+system.realview.uart2.device: Listening for connections on port 3458
+system.realview.uart3.device: Listening for connections on port 3459
+system.remote_gdb: Listening for connections on port 7000
+src/dev/arm/energy_ctrl.cc:252: warn: Existing EnergyCtrl, but no enabled DVFSHandler found.
+src/sim/simulate.cc:199: info: Entering event queue @ 0.  Starting simulation...
+src/arch/arm/isa.cc:828: warn: The csselr register isn't implemented.
+src/arch/arm/isa.cc:475: warn: The ccsidr register isn't implemented and always reads as 0.
+build/ARM/arch/arm/generated/decoder-ns.cc.inc:88378: warn: 	instruction 'mcr dcisw' unimplemented
+build/ARM/arch/arm/generated/decoder-ns.cc.inc:88419: warn: 	instruction 'mrrc l2merrsr' unimplemented
+src/cpu/simple/atomic.cc:515: panic: panic condition pkt.isError() occurred: Data write ([0x80000000:0x80000001]) failed: BadAddressError [80000000:80000000]
+Memory Usage: 2543712 KBytes
+Program aborted at tick 10280500
+--- BEGIN LIBC BACKTRACE ---
+/home/kjb/sandbox2/neo_IITP/gem5/build/ARM/gem5.opt(_ZN4gem515print_backtraceEv+0x30)[0x6312238f4fa0]
+/home/kjb/sandbox2/neo_IITP/gem5/build/ARM/gem5.opt(_ZN4gem512abortHandlerEi+0x4c)[0x63122391b86c]
+/lib/x86_64-linux-gnu/libc.so.6(+0x45330)[0x742308a45330]
+/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x11c)[0x742308a9eb2c]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0x1e)[0x742308a4527e]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0xdf)[0x742308a288ff]
+/home/kjb/sandbox2/neo_IITP/gem5/build/ARM/gem5.opt(+0x10e08b5)[0x6312215ae8b5]
+/home/kjb/sandbox2/neo_IITP/gem5/build/ARM/gem5.opt(_ZN4gem515AtomicSimpleCPU8writeMemEPhjmNS_5FlagsImEEPmRKSt6vectorIbSaIbEE+0xc3b)[0x631222c2be1b]
+/home/kjb/sandbox2/neo_IITP/gem5/build/ARM/gem5.opt(_ZN4gem517SimpleExecContext8writeMemEPhjmNS_5FlagsImEEPmRKSt6vectorIbSaIbEE+0x5c)[0x631222c48b7c]
+/home/kjb/sandbox2/neo_IITP/gem5/build/ARM/gem5.opt(_ZN4gem514writeMemAtomicILNS_9ByteOrderE1ENS_11ExecContextEhEESt10shared_ptrINS_9FaultBaseEEPT0_PNS_5trace10InstRecordERKT1_mNS_5FlagsImEEPm+0x7f)[0x6312225b00ef]
+/home/kjb/sandbox2/neo_IITP/gem5/build/ARM/gem5.opt(_ZNK4gem510ArmISAInst28STORE_IMM_PN_AY_WN_SN_UN_SZ17executeEPNS_11ExecContextEPNS_5trace10InstRecordE+0x1e9)[0x63122253c1b9]
+/home/kjb/sandbox2/neo_IITP/gem5/build/ARM/gem5.opt(_ZN4gem515AtomicSimpleCPU4tickEv+0x39a)[0x631222c296ea]
+/home/kjb/sandbox2/neo_IITP/gem5/build/ARM/gem5.opt(_ZN4gem510EventQueue10serviceOneEv+0xb7)[0x63122390a2c7]
+/home/kjb/sandbox2/neo_IITP/gem5/build/ARM/gem5.opt(_ZN4gem59doSimLoopEPNS_10EventQueueE+0x70)[0x631223934510]
+/home/kjb/sandbox2/neo_IITP/gem5/build/ARM/gem5.opt(_ZN4gem58simulateEm+0x26b)[0x631223934c9b]
+/home/kjb/sandbox2/neo_IITP/gem5/build/ARM/gem5.opt(+0x17d2e00)[0x631221ca0e00]
+/home/kjb/sandbox2/neo_IITP/gem5/build/ARM/gem5.opt(+0x111db6e)[0x6312215ebb6e]
+/lib/x86_64-linux-gnu/libpython3.12.so.1.0(+0x1df4b8)[0x7423099df4b8]
+/lib/x86_64-linux-gnu/libpython3.12.so.1.0(_PyObject_Call+0x5c)[0x74230998485c]
+/lib/x86_64-linux-gnu/libpython3.12.so.1.0(_PyEval_EvalFrameDefault+0x8ec)[0x742309919dec]
+/lib/x86_64-linux-gnu/libpython3.12.so.1.0(PyEval_EvalCode+0x20f)[0x742309aa091f]
+/lib/x86_64-linux-gnu/libpython3.12.so.1.0(+0x29c8b0)[0x742309a9c8b0]
+/lib/x86_64-linux-gnu/libpython3.12.so.1.0(+0x1dfadc)[0x7423099dfadc]
+/lib/x86_64-linux-gnu/libpython3.12.so.1.0(PyObject_Vectorcall+0x5c)[0x742309982b2c]
+/lib/x86_64-linux-gnu/libpython3.12.so.1.0(_PyEval_EvalFrameDefault+0x40ee)[0x74230991d5ee]
+/home/kjb/sandbox2/neo_IITP/gem5/build/ARM/gem5.opt(+0x17b8f70)[0x631221c86f70]
+/home/kjb/sandbox2/neo_IITP/gem5/build/ARM/gem5.opt(main+0x225)[0x6312215aa125]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2a1ca)[0x742308a2a1ca]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x8b)[0x742308a2a28b]
+/home/kjb/sandbox2/neo_IITP/gem5/build/ARM/gem5.opt(_start+0x25)[0x6312215ad605]
+--- END LIBC BACKTRACE ---
+For more info on how to address this issue, please visit https://www.gem5.org/documentation/general_docs/common-errors/ 
+
