@@ -81,6 +81,8 @@ Recommend using an older version of the linux kernel to prevent unexpected issue
 ```bash
    cd gem5_CXL/runscripts
    ./run_bm.sh
+
+   # The simulator auto-quit flag is not yet ready, so please exit using the Ctrl+C interrupt or manually add it to the script
    ```
 
 For host CPU instructions for CXL.mem testing, you can perform them by entering memory address access code in `gem5_CXL/gem5.bare-metal/Simple/main.cpp`, and for CXL processor instructions for CXL.cache testing, you can use the schedule function generation in `gem5/dev/cxl/TestDev/CXLProcessor.cc`.
