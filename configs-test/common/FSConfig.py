@@ -337,33 +337,33 @@ def makeArmSystem(
 
 
     # CXL_Debug
-    # self.realview.CXL = CXLplatform()
-    # self.realview.CXL.CXLDevice = CXLDevice(pio_addr=0x15000000, pio_size=0x40000, pci_bus = 6 , pci_dev = 0, pci_func = 0 , InterruptLine = 3, InterruptPin = 2, root_port_number = 1)
-    # self.realview.CXL.CXLDevice.pio = self.pcie6.downstreamMaster
-    # self.realview.CXL.CXLDevice.dma = self.pcie6.downstreamSlave
-    # # self.realview.CXL.cxlmembus = SystemXBar()
-    # # self.realview.CXL.cxlmembus = IOXBar()
-    # self.realview.CXL.cxlmembus = CXLXBar()
-    # self.realview.CXL.CXLDevice.in_port = self.realview.CXL.cxlmembus.cpu_side_ports
-    # self.realview.CXL.CXLDevice.ex_port = self.realview.CXL.cxlmembus.mem_side_ports
-    # self.realview.CXL.cxl_mem_ctrl = MemCtrl()
-    # self.realview.CXL.cxl_mem_ctrl.dram = DDR3_1600_8x8()
-    # # self.realview.CXL.cxl_mem_ctrl.dram.range = AddrRange(0x16000000, size=0x1000000)
-    # self.realview.CXL.cxl_mem_ctrl.dram.range = AddrRange(0x80000000, size=0x20000000)
-    # self.realview.CXL.cxl_mem_ctrl.port = self.realview.CXL.cxlmembus.mem_side_ports
-    # self.realview.CXL.cxl_cache = CXLCache()
-    # # self.realview.CXL.CXLDevice.coh_port = self.realview.CXL.cxl_cache.cpu_side
-    # self.realview.CXL.cxl_cache.connectMemSideBus(self.realview.CXL.cxlmembus)
-    # self.realview.CXL.cxl_processor = CXLProcessor()
-    # self.realview.CXL.cxl_cache.connectCPUSideBus(self.realview.CXL.cxl_processor)
+    self.realview.CXL = CXLplatform()
+    self.realview.CXL.CXLDevice = CXLDevice(pio_addr=0x15000000, pio_size=0x40000, pci_bus = 6 , pci_dev = 0, pci_func = 0 , InterruptLine = 3, InterruptPin = 2, root_port_number = 1)
+    self.realview.CXL.CXLDevice.pio = self.pcie6.downstreamMaster
+    self.realview.CXL.CXLDevice.dma = self.pcie6.downstreamSlave
+    # self.realview.CXL.cxlmembus = SystemXBar()
+    # self.realview.CXL.cxlmembus = IOXBar()
+    self.realview.CXL.cxlmembus = CXLXBar()
+    self.realview.CXL.CXLDevice.in_port = self.realview.CXL.cxlmembus.cpu_side_ports
+    self.realview.CXL.CXLDevice.ex_port = self.realview.CXL.cxlmembus.mem_side_ports
+    self.realview.CXL.cxl_mem_ctrl = MemCtrl()
+    self.realview.CXL.cxl_mem_ctrl.dram = DDR3_1600_8x8()
+    # self.realview.CXL.cxl_mem_ctrl.dram.range = AddrRange(0x16000000, size=0x1000000)
+    self.realview.CXL.cxl_mem_ctrl.dram.range = AddrRange(0x80000000, size=0x20000000)
+    self.realview.CXL.cxl_mem_ctrl.port = self.realview.CXL.cxlmembus.mem_side_ports
+    self.realview.CXL.cxl_cache = CXLCache()
+    # self.realview.CXL.CXLDevice.coh_port = self.realview.CXL.cxl_cache.cpu_side
+    self.realview.CXL.cxl_cache.connectMemSideBus(self.realview.CXL.cxlmembus)
+    self.realview.CXL.cxl_processor = CXLProcessor()
+    self.realview.CXL.cxl_cache.connectCPUSideBus(self.realview.CXL.cxl_processor)
 
 
 
-    self.realview.ethernet1 = IGbE_pcie(pci_bus = 6 , pci_dev = 0, pci_func = 0 , InterruptLine = 3, InterruptPin = 2, root_port_number = 1) #3
-    # #self.realview.ethernet1.pio = self.iobus3.master  #iobus3
-    # #self.realview.ethernet1.dma = self.iobus3.slave
-    self.realview.ethernet1.pio = self.pcie6.downstreamMaster
-    self.realview.ethernet1.dma = self.pcie6.downstreamSlave  
+    # self.realview.ethernet1 = IGbE_pcie(pci_bus = 6 , pci_dev = 0, pci_func = 0 , InterruptLine = 3, InterruptPin = 2, root_port_number = 1) #3
+    # # #self.realview.ethernet1.pio = self.iobus3.master  #iobus3
+    # # #self.realview.ethernet1.dma = self.iobus3.slave
+    # self.realview.ethernet1.pio = self.pcie6.downstreamMaster
+    # self.realview.ethernet1.dma = self.pcie6.downstreamSlave  
     self.realview.ethernet2 = IGbE_e1000(pci_bus = 4 , pci_dev = 0, pci_func = 0 , InterruptLine = 3, InterruptPin = 1, root_port_number = 0 , is_invisible=1 ) #4
     #self.realview.ethernet2.pio = self.iobus4.master  #iobus4
     #self.realview.ethernet2.dma = self.iobus4.slave
@@ -556,7 +556,7 @@ def makeArmSystem(
     # PCIE
     self.Root_Complex.host = self.realview.pci_host
     self.switch.host = self.realview.pci_host 
-    self.realview.ethernet1.host = self.realview.pci_host
+    # self.realview.ethernet1.host = self.realview.pci_host
     self.realview.ethernet2.host = self.realview.pci_host
     self.realview.ethernet3.host = self.realview.pci_host
     #self.realview.ethernet4.host = self.realview.pci_host
